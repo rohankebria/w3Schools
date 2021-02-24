@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Garage from "./Apps";
 
 const myelement = (
   <div>
@@ -29,37 +30,6 @@ const myelement2 = <h1>Learning to React!</h1>;
 
 function Car2() {
   return <h2>Hi, I am FUNCTIONAL a React Car!</h2>;
-}
-
-class Car extends React.Component {
-  constructor() {
-    super();
-    this.state = { color: "red" }; // state is an object
-  }
-  render() {
-    return (
-      <h2>
-        I am a {this.state.color} and {this.props.color} Car!
-      </h2>
-    );
-  }
-}
-class Garage extends React.Component {
-  constructor() {
-    super();
-    this.state = { location: "Sigtuna" };
-  }
-  render() {
-    // console.log(this.props);
-    return (
-      <div>
-        <h1>
-          Who lives in my {this.state.location} {this.props.type} Garage?
-        </h1>
-        <Car color="blue" />
-      </div>
-    );
-  }
 }
 
 ReactDOM.render(<Garage type="Parking" />, document.getElementById("root"));
