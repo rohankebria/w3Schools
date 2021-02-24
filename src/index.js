@@ -44,5 +44,22 @@ class Car extends React.Component {
     );
   }
 }
+class Garage extends React.Component {
+  constructor() {
+    super();
+    this.state = { location: "Sigtuna" };
+  }
+  render() {
+    // console.log(this.props);
+    return (
+      <div>
+        <h1>
+          Who lives in my {this.state.location} {this.props.type} Garage?
+        </h1>
+        <Car color="blue" />
+      </div>
+    );
+  }
+}
 
-ReactDOM.render(<Car color="blue" />, document.getElementById("root"));
+ReactDOM.render(<Garage type="Parking" />, document.getElementById("root"));
