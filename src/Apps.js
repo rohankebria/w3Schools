@@ -9,9 +9,17 @@ class Car extends React.Component {
       color: "red",
       year: 1964,
     }; // state is an object
+
+    //this.shoot = this.shoot.bind(this);
   }
 
-  changeColor = () => {
+  shoot(msg) {
+    // event handler
+    console.log(this); // this is binded inside constructor, no need for Arrow function
+    alert(msg + "---" + this);
+  }
+
+  changeModel = () => {
     this.setState({ model: "Rio" });
   };
   /* shouldComponentUpdate() {
@@ -23,21 +31,22 @@ class Car extends React.Component {
       "Before the update, the favorite was " + prevState.model;
     return null;
   }
-  componentDidUpdate() {
+  componentDidUpdate(pProps, pState) {
     document.getElementById("div2").innerHTML =
       "The updated favorite is " + this.state.model;
+    console.log(pProps, pState);
   }
   render() {
     return (
       <div>
-        <h3>
+        <h3 onMouseOver={this.shoot.bind(this, "Great Binded Shoot")}>
           I am a {this.state.color} and {this.props.color} Car, named
           {" " + this.props.brand}! and my friends are{" "}
           {this.props.weAll.name + " " + this.props.weAll.model} and{" "}
           {this.state.brand}
           {" " + this.state.model}
         </h3>
-        <button type="button" onClick={this.changeColor}>
+        <button type="button" onClick={this.changeModel}>
           <h1> Change model </h1>
         </button>
         <div id="div1"></div>
