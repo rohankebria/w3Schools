@@ -13,10 +13,10 @@ class Car extends React.Component {
     //this.shoot = this.shoot.bind(this);
   }
 
-  shoot(msg) {
+  shoot(msg, evnt) {
     // event handler
-    console.log(this); // this is binded inside constructor, no need for Arrow function
-    alert(msg + "---" + this);
+    console.log(this, evnt); // this is binded inside constructor, no need for Arrow function
+    alert(msg + "---" + this + " type is: " + evnt.type);
   }
 
   changeModel = () => {
