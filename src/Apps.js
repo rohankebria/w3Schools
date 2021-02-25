@@ -42,6 +42,12 @@ class Garage extends React.Component {
     this.setState({ location: "Märsta" });
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ location: "Norrbackavägen" });
+    }, 1000);
+  }
+
   render() {
     // console.log(this.props);
     const carname = "Volvo";
