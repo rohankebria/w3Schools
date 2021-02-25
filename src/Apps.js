@@ -14,7 +14,19 @@ class Car extends React.Component {
   changeColor = () => {
     this.setState({ model: "Rio" });
   };
+  /* shouldComponentUpdate() {
+    return false;
+  } */
 
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    document.getElementById("div1").innerHTML =
+      "Before the update, the favorite was " + prevState.model;
+    return null;
+  }
+  componentDidUpdate() {
+    document.getElementById("div2").innerHTML =
+      "The updated favorite is " + this.state.model;
+  }
   render() {
     return (
       <div>
@@ -28,6 +40,8 @@ class Car extends React.Component {
         <button type="button" onClick={this.changeColor}>
           <h1> Change model </h1>
         </button>
+        <div id="div1"></div>
+        <div id="div2"></div>
       </div>
     );
   }
@@ -47,6 +61,13 @@ class Garage extends React.Component {
       this.setState({ location: "Norrbackavägen" });
     }, 1000);
   }
+
+  /*shouldComponentUpdate() {
+    return false;
+  } */
+  /* static getDerivedStateFromProps(props, state) {
+    return { location: "Sweden" };
+  }*/
 
   render() {
     // console.log(this.props);
