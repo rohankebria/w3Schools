@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import stylesCSS from "./mystyle.module.css";
 
 class Car extends React.Component {
   constructor(props) {
@@ -57,7 +58,10 @@ class Car extends React.Component {
     };
     return (
       <div style={mystyle}>
-        <h3 onMouseOver={this.shoot.bind(this, "Great Binded Shoot")}>
+        <h3
+          onMouseOver={this.shoot.bind(this, "Great Binded Shoot")}
+          className={stylesCSS.bigblue}
+        >
           I am a {this.state.color} and {this.props.color} Car, named
           {" " + this.props.brand}! and my friends are{" "}
           {this.props.weAll.name + " " + this.props.weAll.model} and{" "}
